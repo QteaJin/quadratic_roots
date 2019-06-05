@@ -45,7 +45,8 @@ public class DataServiceImpl implements DataService {
 	}
 
 	@Override
-	public Data calculation(Data data) {
+	public Data calculation(Data data) { // main logic to calculate quadratic roots
+		if(data == null) {return new Data();}
 		double a = data.getParamA();
 		double b = data.getParamB();
 		double c = data.getParamC();

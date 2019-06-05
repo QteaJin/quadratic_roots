@@ -29,11 +29,11 @@ public class HomeController {
 	@RequestMapping(value = "/getResult", method = RequestMethod.POST)
 	public ModelAndView getResult(@ModelAttribute("incomeData") Data data, ModelAndView model) {
 		logger.info(data.getParamA() + " " + data.getParamB() + " " + data.getParamC());
-		if (data == null || data.getParamA() == 0) {
+		if (data == null || data.getParamA() == 0) { // check income data
 			return new ModelAndView("error");
 		}
 		Data result = dataService.calculateResult(data);
-		if (result.getX1() == null) {
+		if (result.getX1() == null) { // check data after calculation
 			return new ModelAndView("error");
 		}
 		model.addObject("data", data);
